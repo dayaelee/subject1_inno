@@ -3,7 +3,11 @@ import java.util.List;
 
 public class Calculator {
     private int result;
-    private List<Integer> arr = new ArrayList<>();
+    private List<Integer> arr;
+
+    Calculator(){
+        arr = new ArrayList<>();
+    }
 
     public int calculate(int num1, int num2, char cal) throws RuntimeException {
         if (cal == '+') {
