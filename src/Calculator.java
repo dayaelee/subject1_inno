@@ -2,30 +2,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Calculator {
-
     private int result;
     private List<Integer> arr = new ArrayList<>();
 
     public int calculate(int num1, int num2, char cal) throws RuntimeException {
-
         if (cal == '+') {
             this.result = num1 + num2;
-            arr.add(num1 + num2);
+            arr.add(this.result);
             System.out.println("결과: " + result);
 
         } else if (cal == ('-')) {
             this.result = num1 - num2;
-            arr.add(num1 - num2);
+            arr.add(this.result);
             System.out.println("결과: " + result);
 
         } else if (cal == ('*')) {
             this.result = num1 * num2;
-            arr.add(num1 * num2);
+            arr.add(this.result);
             System.out.println("결과: " + result);
         } else if (cal == ('/')) {
             try {
                 this.result = num1 / num2;
-                arr.add(num1 / num2);
+                arr.add(this.result);
                 System.out.println("결과: " + result);
 
             } catch (ArithmeticException e) {
@@ -40,6 +38,13 @@ public class Calculator {
     public void removeResult(){
         if (!arr.isEmpty()){
             arr.remove(0);
+        }
+    }
+
+    public void inquiryResults(){
+        System.out.println(arr.toString());
+        for (Integer ele : arr) {
+            System.out.println(ele);
         }
     }
 
