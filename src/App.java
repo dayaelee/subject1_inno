@@ -1,7 +1,9 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class App {
     public static int[] arr;
+    public static int result;
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         arr = new int[10];
@@ -17,35 +19,67 @@ public class App {
             System.out.print("사칙연산 기호를 입력하세요: ");
             char cal = sc.nextLine().charAt(0);
 
-            int result;
+
 
             if (cal == ('+')) {
                 result = num1 + num2;
-                arr[cnt] = result;
+                if (cnt >= 10){
+                    for (int i = 1; i <= 9; i++) {
+                        arr[i-1] = arr[i];
+                    }
+                    arr[9]=result;
+                }else {
+                    arr[cnt] = result;
+                    cnt+=1;
+                }
                 System.out.println("결과: " + result);
-                cnt+=1;
+
             } else if (cal == ('-')) {
                 result = num1 - num2;
-                arr[cnt] = result;
+                if (cnt >= 10){
+                    for (int i = 1; i <= 9; i++) {
+                        arr[i-1] = arr[i];
+                    }
+                    arr[9]=result;
+                }else {
+                    arr[cnt] = result;
+                    cnt+=1;
+                }
                 System.out.println("결과: " + result);
-                cnt+=1;
+
             } else if (cal == ('*')) {
                 result = num1 * num2;
-                arr[cnt] = result;
+                if (cnt >= 10){
+                    for (int i = 1; i <= 9; i++) {
+                        arr[i-1] = arr[i];
+                    }
+                    arr[9]=result;
+                }else {
+                    arr[cnt] = result;
+                    cnt += 1;
+                }
                 System.out.println("결과: " + result);
-                cnt+=1;
             } else if (cal == ('/')) {
                 try {
                     result = num1 / num2;
-                    arr[cnt] = result;
+                    if (cnt >= 10){
+                        for (int i = 1; i <= 9; i++) {
+                            arr[i-1] = arr[i];
+                        }
+                        arr[9]=result;
+                    }else {
+                        arr[cnt] = result;
+                        cnt += 1;
+                    }
                     System.out.println("결과: " + result);
-                    cnt+=1;
+
                 } catch (ArithmeticException e) {
                     System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다. ");
                 }
             }
 
 
+            System.out.println(Arrays.toString(arr));
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             String check = sc.nextLine();
