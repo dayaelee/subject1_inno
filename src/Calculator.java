@@ -37,6 +37,12 @@ public class Calculator {
         return result;
     }
 
+    public void removeResult(){
+        if (!arr.isEmpty()){
+            arr.remove(0);
+        }
+    }
+
     public int getResult() {
         return result;
     }
