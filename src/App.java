@@ -14,6 +14,27 @@ public class App {
         System.out.print("사칙연산 기호를 입력하세요: ");
         char cal = sc.nextLine().charAt(0);
 
+        int result;
+
+        if (cal==('+')) {
+            result = num1 + num2;
+            System.out.println("결과: " + result);
+        } else if (cal==('-')) {
+            result = num1 - num2;
+            System.out.println("결과: " + result);
+        } else if (cal==('*')) {
+            result = num1 * num2;
+            System.out.println("결과: " + result);
+        } else if (cal==('/')) {
+            try{
+                result = num1/num2;
+                System.out.println("결과: " + result);
+            }catch(ArithmeticException e){
+                System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다. ");
+            }
+        }
+
+
 
 
     }
