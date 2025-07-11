@@ -23,72 +23,22 @@ public class App {
             System.out.print("사칙연산 기호를 입력하세요: ");
             char cal = sc.nextLine().charAt(0);
 
-            if (cal == ('+')) {
-                result = num1 + num2;
-//                if (cnt >= 10){
-//                    for (int i = 1; i <= 9; i++) {
-//                        arr.[i-1] = arr[i];
-//                    }
-//                    arr[9]=result;
-//                }else {
-//                    arr[cnt] = result;
-//                    cnt+=1;
-//                }
-                arr.add(result);
-                System.out.println("결과: " + result);
+            Calculator calculator = new Calculator();
 
-            } else if (cal == ('-')) {
-                result = num1 - num2;
-//                if (cnt >= 10){
-//                    for (int i = 1; i <= 9; i++) {
-//                        arr[i-1] = arr[i];
-//                    }
-//                    arr[9]=result;
-//                }else {
-//                    arr[cnt] = result;
-//                    cnt+=1;
-//                }
-                arr.add(result);
-                System.out.println("결과: " + result);
-
-            } else if (cal == ('*')) {
-                result = num1 * num2;
-//                if (cnt >= 10){
-//                    for (int i = 1; i <= 9; i++) {
-//                        arr[i-1] = arr[i];
-//                    }
-//                    arr[9]=result;
-//                }else {
-//                    arr[cnt] = result;
-//                    cnt += 1;
-//                }
-                arr.add(result);
-                System.out.println("결과: " + result);
-            } else if (cal == ('/')) {
-                try {
-                    result = num1 / num2;
-//                    if (cnt >= 10){
-//                        for (int i = 1; i <= 9; i++) {
-//                            arr[i-1] = arr[i];
-//                        }
-//                        arr[9]=result;
-//                    }else {
-//                        arr[cnt] = result;
-//                        cnt += 1;
-//                    }
-                    arr.add(result);
-                    System.out.println("결과: " + result);
-
-                } catch (ArithmeticException e) {
-                    System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다. ");
-                }
+            try {
+                result = calculator.calculate(num1, num2, cal);
+            } catch (RuntimeException e){
+                System.out.print("올바른 사칙연산 기호를 입력하세요");
+//                e.printStackTrace();
             }
 
 
             System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
             String check0 = sc.nextLine();
             if (check0.equals("remove")){
-                arr.remove(0);
+                if (!arr.isEmpty()){
+                    arr.remove(0);
+                }
             }
 
             System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
