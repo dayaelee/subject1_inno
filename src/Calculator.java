@@ -3,10 +3,23 @@ import java.util.List;
 
 public class Calculator {
     private int result;
+    private double resultCircle;
     private List<Integer> arr;
+    private List<Double> arrCircle;
+
+    final static double PI = 3.14159;
+    /*
+    * PI 값은 변하지 않는 값이다.
+    * 자바에서 프로그램 실행중에 절대 변경되서는 안되는 값을
+    * static final 키워드로 선언한다
+    * static - 여러 곳에서 값을 공유해 쓰일 목적일때 사용함
+    * final - 내부 상태를 변경할 수 없는 불변객체의 속성 사용됨
+    * */
 
     Calculator(){
         arr = new ArrayList<>();
+        arrCircle = new ArrayList<>();
+        resultCircle = 0;
     }
 
     public int calculate(int num1, int num2, char cal) throws RuntimeException {
@@ -46,7 +59,6 @@ public class Calculator {
     }
 
     public void inquiryResults(){
-        System.out.println(arr.toString());
         for (Integer ele : arr) {
             System.out.println(ele);
         }
@@ -59,4 +71,27 @@ public class Calculator {
     public void setResult(int result) {
         this.result = result;
     }
+
+    public double calculateCircleArea(int r){
+        this.resultCircle = PI*r*r;
+        arrCircle.add(this.resultCircle);
+        return this.resultCircle;
+    }
+
+    public double getResultCircle() {
+        return resultCircle;
+    }
+
+    public void setResultCircle(double resultCircle) {
+        this.resultCircle = resultCircle;
+    }
+
+    public void inquiryCircleResults(){
+
+        for (Double ele : arrCircle) {
+            System.out.println(ele);
+        }
+    }
+
+
 }
