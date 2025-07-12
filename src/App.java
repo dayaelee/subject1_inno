@@ -8,7 +8,9 @@ public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         arr = new ArrayList<>();
-        Calculator calculator = new Calculator();
+//        Calculator calculator = new Calculator();
+        ArithmeticCalculator arithmeticCalculator = new ArithmeticCalculator();
+        CircleCalculator circleCalculator = new CircleCalculator();
 
 
         while (true) {
@@ -27,7 +29,7 @@ public class App {
                 char cal = sc.nextLine().charAt(0);
 
                 try {
-                    result = calculator.calculate(num1, num2, cal);
+                    result = arithmeticCalculator.calculate(num1, num2, cal);
 
                 } catch (RuntimeException e){
                     System.out.print("올바른 사칙연산 기호를 입력하세요");
@@ -37,25 +39,25 @@ public class App {
                 System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
                 String check0 = sc.nextLine();
                 if (check0.equals("remove")){
-                    calculator.removeResult();
+                    circleCalculator.removeResult();
                 }
 
                 System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
                 String check00 = sc.nextLine();
                 if (check00.equals("inquiry")){
-                    calculator.inquiryResults();
+                    arithmeticCalculator.inquiryResults();
                 }
             } else if(choice == 2){
                 System.out.println("원의 반지름을 입력하세요: ");
                 int r = sc.nextInt();
 
                 sc.nextLine();
-                double tmp = calculator.calculateCircleArea(r);
-                calculator.setResultCircle(tmp);
-                System.out.println("원의 넓이: "+calculator.getResultCircle());
+                double tmp = circleCalculator.calculateCircleArea(r);
+                circleCalculator.setResultCircle(tmp);
+                System.out.println("원의 넓이: "+circleCalculator.getResultCircle());
 
                 System.out.println("저장된 원의 넓이의 값들: ");
-                calculator.inquiryCircleResults();
+                circleCalculator.inquiryCircleResults();
 
             }
 

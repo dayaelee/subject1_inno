@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Calculator {
+public abstract class Calculator {
     private int result;
     private double resultCircle;
     private List<Integer> arr;
