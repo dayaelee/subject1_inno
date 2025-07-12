@@ -24,24 +24,28 @@ public abstract class Calculator {
 
     public int calculate(int num1, int num2, char cal) throws RuntimeException {
         if (cal == '+') {
-            this.result = num1 + num2;
-            arr.add(this.result);
-            System.out.println("결과: " + result);
+            AddOperator addOperator = new AddOperator();
+            int tmp = addOperator.operate(num1, num2);
+            setResult(tmp);
+            System.out.println("결과: " + tmp);
 
         } else if (cal == ('-')) {
-            this.result = num1 - num2;
-            arr.add(this.result);
-            System.out.println("결과: " + result);
+            SubtractOperator subtractOperator = new SubtractOperator();
+            int tmp = subtractOperator.operate(num1, num2);
+            setResult(tmp);
+            System.out.println("결과: " + tmp);
 
         } else if (cal == ('*')) {
-            this.result = num1 * num2;
-            arr.add(this.result);
-            System.out.println("결과: " + result);
+            MultiplyOperator multiplyOperator = new MultiplyOperator();
+            int tmp = multiplyOperator.operate(num1, num2);
+            setResult(tmp);
+            System.out.println("결과: " + tmp);
         } else if (cal == ('/')) {
             try {
-                this.result = num1 / num2;
-                arr.add(this.result);
-                System.out.println("결과: " + result);
+                DivideOperator divideOperator = new DivideOperator();
+                int tmp = divideOperator.operate(num1, num2);
+                setResult(tmp);
+                System.out.println("결과: " + tmp);
 
             } catch (ArithmeticException e) {
                 System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다. ");
@@ -69,6 +73,7 @@ public abstract class Calculator {
     }
 
     public void setResult(int result) {
+        arr.add(result);
         this.result = result;
     }
 
@@ -95,3 +100,4 @@ public abstract class Calculator {
 
 
 }
+
