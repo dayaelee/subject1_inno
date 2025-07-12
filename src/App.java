@@ -30,7 +30,6 @@ public class App {
 
                 try {
                     result = arithmeticCalculator.calculate(num1, num2, cal);
-
                 } catch (RuntimeException e){
                     System.out.print("올바른 사칙연산 기호를 입력하세요");
     //                e.printStackTrace();
